@@ -7,6 +7,12 @@ import AddTask from './AddTask';
 
 function App() {
 
+  interface Task {
+    id: number;
+    task: string;
+    complete: boolean;
+  }
+
   const [toDoList, setToDoList] = useState(data);
 
   const handleToggle = (id) => {
@@ -23,9 +29,9 @@ function App() {
     setToDoList(newMap);
   };
 
-  const addTask = (task) => {
+  const addTask = (task:string) => {
     let copy = [...toDoList];
-    copy = [...copy, {id: copy.length+1, complete: false, task: task}];
+    copy = [...copy, {id: copy.length+1, task: task, complete: false}];
     setToDoList(copy);
   }
 
